@@ -15,6 +15,9 @@ return [
     'Update' => 'Изенить',
     'Delete' => 'Удалить',
 
+    "Not defined `{model}` class" => 'Не задан класс для `{model}`',
+    "Class `{class}` must implements `{interface}`" => 'Класс `{class}` должен реализовывать `{interface}`',
+
     'Data provider must be instance of `CategorizedDataProvider` class'
         => 'Провайдер данных должен быть экземпляром `CategorizedDataProvider` класса',
 

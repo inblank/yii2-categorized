@@ -66,14 +66,26 @@ class CategorizedDataProvider extends \yii\data\BaseDataProvider
     public function init()
     {
         parent::init();
-        foreach (['categoryModel', 'itemModel'] as $type => $attr) {
+        foreach (['categories' => 'categoryModel', 'items' => 'itemModel'] as $type => $attr) {
             if (is_string($this->$attr)) {
                 $this->$attr = ['class' => $this->$attr];
             }
             if (!array_key_exists('class', (array)$this->$attr)) {
                 throw new InvalidParamException(
-                    Yii::t('app', "Not defined `{$attr}` class")
+                    Yii::t('categorized_main', "Not defined `{model}` class", [
+                        'model' => $attr
+                    ])
                 );
+            } else {
+                $interface = '\inblank\categorized\interfaces\\' . ucfirst($type) . 'Interface';
+                if (!((new $this->$attr['class']) instanceof $interface)) {
+                    throw new InvalidParamException(
+                        Yii::t('categorized_main', "Class `{class}` must implements `{interface}`", [
+                            'class' => $this->$attr['class'],
+                            'interface' => $interface
+                        ])
+                    );
+                }
             }
         }
     }
