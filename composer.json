@@ -1,13 +1,12 @@
 {
     "name": "inblank/yii2-categorized",
     "type": "yii2-extension",
-    "description": "Extension for Yii2 to work with categories",
+    "description": "Extension for Yii2 to work with categories and items in them",
     "keywords": [
         "yii2",
         "categories",
         "categorized",
-        "category",
-        "nested set"
+        "category"
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -23,8 +22,7 @@
     "require": {
         "php": ">=5.4",
         "yiisoft/yii2": "~2.0.11",
-        "yiisoft/yii2-bootstrap": "*",
-        "creocoder/yii2-nested-sets": "0.9.*"
+        "yiisoft/yii2-bootstrap": "2.0.*"
     },
     "require-dev": {
         "codeception/codeception": "^2.1",
